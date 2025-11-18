@@ -1,5 +1,5 @@
-<article class="message">
-  <p data-field="message[content]"></p>
+<article class="message" id="<%= dom_id(message) %>">
+  <p data-field="message[content]"><%= message.content %></p>
 
-  <small>Just now</small>
+  <small><%= message.created_at.strftime("%Y/%m/%d") %></small>
 </article>

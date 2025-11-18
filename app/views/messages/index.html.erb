@@ -1,6 +1,19 @@
 <h1>Messages</h1>
 
-
 <div id="messages">
   <%= render @messages %>
 </div>
+
+<optimistic-form>
+  <form action="<%= messages_path %>" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+    <%= text_area_tag "message[content]", nil, placeholder: "Write a message…", required: true %>
+
+    <%= submit_tag "Send" %>
+  </form>
+
+  <template response>
+    <%= render Message.new(content: "", created_at: Time.current) %>
+  </template>
+</optimistic-form>

@@ -3,3 +3,4 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 import "components/click_counter"
+import "components/optimistic_form"
