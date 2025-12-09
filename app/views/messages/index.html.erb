@@ -17,3 +17,24 @@
     <%= render Message.new(content: "", created_at: Time.current) %>
   </template>
 </optimistic-form>
+
+
+<hr>
+
+<h2>
+  Using Turbo
+</h2>
+
+<%= form_with model: Message.new, data: { optimistic: true, optimistic_target: "optimistic-messages", optimistic_template: "message-template", optimistic_position: "append" } do |form| %>
+  <%= form.text_area :content, placeholder: "Write a message…", required: true %>
+
+  <%= form.submit "Send" %>
+<% end %>
+
+<template id="message-template">
+  <%= render Message.new(content: "", created_at: Time.current) %>
+</template>
+
+<div id="optimistic-messages">
+  <%= render @messages %>
+</div>

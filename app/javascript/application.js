@@ -4,3 +4,4 @@ import "controllers"
 
 import "components/click_counter"
 import "components/optimistic_form"
+import "components/optimistic_turbo_form"
